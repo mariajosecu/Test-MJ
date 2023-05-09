@@ -26,17 +26,6 @@ public class Main {
 
         opciones op = new opciones();
         op.login(usuario,password, driver);
-
-        
-
-
-
-
-
-
-        //ejemplo WebElement element = driver.findElement(By.id("element-id"));
-
-
     }
 
 }
