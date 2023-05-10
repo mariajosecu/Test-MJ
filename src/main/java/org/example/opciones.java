@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public class opciones {
 
-    public void login(String username, String password, WebDriver driver){
+    public static void login(String username, String password, WebDriver driver){
         WebElement usernameField = driver.findElement(By.name("username"));
         usernameField.sendKeys(username);
 
@@ -13,12 +13,26 @@ public class opciones {
         passwordField.sendKeys(password);
 
     }
-    public void writeElement(int by, String parametro, String textoEnviar, WebDriver driver){
-
+    public static void clickBtn(int by,  String parametro, WebDriver driver){
         switch (by) {
             //name
             case 1:
-                WebElement elementoName = driver.findElement(By.xpath(parametro));
+                WebElement elementoName = driver.findElement(By.name(parametro));
+                elementoName.click();
+                break;
+            //xpath
+            case 2:
+                WebElement elementoXPath = driver.findElement(By.xpath(parametro));
+                elementoXPath.click();
+                break;
+        }
+
+    }
+    public void writeElement(int by, String parametro, String textoEnviar, WebDriver driver){
+        switch (by) {
+            //name
+            case 1:
+                WebElement elementoName = driver.findElement(By.name(parametro));
                 elementoName.sendKeys(textoEnviar);
                 break;
              //xpath
